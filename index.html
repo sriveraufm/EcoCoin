@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoToken Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1>EcoToken Dashboard</h1>
-            <button class="logout-button">Log Out</button>
+            <h1> EcoMkt </h1>
+            <button id="logout-button" class="logout-button" style="display: none;">Log Out</button>
         </div>
     </header>
 
     <main class="bento-container">
         <section class="section wallet-info">
             <h2>Wallet Information</h2>
-            <p><strong>Address:</strong> 0x123...abc</p>
-            <p><strong>Balance:</strong> 1000 EcoTokens</p>
-            <button>Connect Wallet</button>
+            <p id="wallet-address">Not connected</p>
+            <button id="connect-wallet-btn">Connect Wallet</button>
         </section>
 
         <section class="section faucet">
