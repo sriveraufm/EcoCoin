@@ -6,7 +6,9 @@
     <title>EcoToken Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
     <script src="script.js" defer></script>
+
 </head>
 <body>
     <header>
@@ -20,8 +22,10 @@
         <section class="section wallet-info">
             <h2>Wallet Information</h2>
             <p id="wallet-address">Not connected</p>
+            <p id="wallet-balance"></p>
             <button id="connect-wallet-btn">Connect Wallet</button>
         </section>
+        
 
         <section class="section faucet">
             <h2>Faucet</h2>
