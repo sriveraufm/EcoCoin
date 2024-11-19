@@ -8,14 +8,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider/dist/detect-provider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
     <script src="script.js" defer></script>
+
+    <!-- FontAwesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="header-content">
             <h1> 🌻 EcoMkt </h1>
             <button id="logout-button" class="logout-button" style="display: none;">Log Out</button>
-            <button onclick="window.location.href='transaction-history.html'">View Transaction History</button>
-            <button onclick="window.location.href='user-profile.html'">View User Profile</button>
+            <nav class="icon-nav">
+                <button onclick="window.location.href='marketplace.html'">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                <button onclick="window.location.href='index.html'">
+                    <i class="fa-solid fa-house"></i>
+                </button>
+                <button onclick="window.location.href='user-profile.html'">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+            </nav>
         </div>
     </header>
 
@@ -34,7 +46,6 @@
             <p>Claim your EcoTokens to get started!</p>
             <button>Claim 10 EcoTokens</button>
         </section>
-
 
         <section class="section marketplace">
             <h2>Marketplace</h2>
