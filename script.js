@@ -409,3 +409,50 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('connect-wallet-btn').addEventListener('click', connectMetamask);
     document.getElementById('logout-button').addEventListener('click', logoutMetamask);
 });
+
+// Function to handle buying items (you'll add actual smart contract logic here)
+function buyItem(item, price) {
+    alert(`Buying ${item} for ${price} EcoTokens`);
+    // Implement buy logic here using Web3.js or other methods
+    // After purchase, update the marketplace
+    updateMarketplace();
+}
+
+// Function to view more items
+function viewMoreItems() {
+    alert("Viewing more items...");
+    // Implement logic to display more items dynamically
+}
+
+// Function to handle buying selected item from the marketplace actions
+async function buySelectedItem() {
+    const selectedItem = document.getElementById("item-select").value;
+    const quantity = document.getElementById("quantity-input").value;
+    alert(`Buying ${quantity} ${selectedItem}(s)`);
+    // Implement actual blockchain logic for the buy transaction
+    
+    // Update the marketplace after purchase
+    updateMarketplace();
+}
+
+// Function to handle selling selected item
+async function sellSelectedItem() {
+    const selectedItem = document.getElementById("item-select").value;
+    const quantity = document.getElementById("quantity-input").value;
+    alert(`Selling ${quantity} ${selectedItem}(s)`);
+    // Implement actual blockchain logic for the sell transaction
+    
+    // Update the marketplace after sale
+    updateMarketplace();
+}
+
+// Function to update the marketplace (e.g., after a transaction)
+function updateMarketplace() {
+    // For now, simply re-fetch wallet balance to show updated state
+    updateWalletBalance();
+
+    // You can add logic here to dynamically update the item list if needed
+    // E.g., showing a list of items that are available or based on available balance
+}
+
+

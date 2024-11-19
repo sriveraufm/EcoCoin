@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMkt Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1> EcoMkt Marketplace </h1>
+        </div>
+    </header>
+
+    <main class="bento-container">
+        <!-- Buy Credits Section -->
+        <section class="section buy-credits">
+            <h2>Buy Credits</h2>
+            <div id="credits-for-sale">
+                <p><strong>Solar Panel</strong>: 100 EcoTokens 
+                    <button class="buy-btn" onclick="buyCredit('Solar Panel', 100)">Buy</button>
+                </p>
+                <p><strong>Wind Turbine</strong>: 500 EcoTokens 
+                    <button class="buy-btn" onclick="buyCredit('Wind Turbine', 500)">Buy</button>
+                </p>
+                <p><strong>Hydro Generator</strong>: 300 EcoTokens 
+                    <button class="buy-btn" onclick="buyCredit('Hydro Generator', 300)">Buy</button>
+                </p>
+            </div>
+        </section>
+
+        <!-- Sell Credits Section -->
+        <section class="section sell-credits">
+            <h2>Sell Credits</h2>
+            <label for="item-type">Item Type:</label>
+            <input type="text" id="item-type" placeholder="Enter item name" />
+            
+            <label for="item-price">Price (in EcoTokens):</label>
+            <input type="number" id="item-price" placeholder="Enter price" />
+            
+            <label for="item-quantity">Quantity:</label>
+            <input type="number" id="item-quantity" value="1" />
+            
+            <button id="sell-credits-btn" onclick="sellCredits()">List Credit for Sale</button>
+        </section>
+
+        <!-- Transaction Confirmation -->
+        <section id="transaction-confirmation" class="section">
+            <h2>Transaction Status</h2>
+            <p id="transaction-message"></p>
+        </section>
+    </main>
+</body>
+</html>

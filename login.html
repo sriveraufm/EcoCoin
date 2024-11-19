@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - EcoToken</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider/dist/detect-provider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <main class="login-container">
@@ -12,13 +16,18 @@
             <h2>Login</h2>
             <form action="index.html" method="get">
                 <label for="wallet">Wallet Address</label>
-                <input type="text" id="wallet" name="wallet" placeholder="0x123...abc" required>
+                <input type="text" id="wallet" name="wallet" placeholder="0x123...abc" readonly required>
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
                 <button type="submit">Login</button>
             </form>
+            <div class="wallet-actions">
+                <button id="connect-wallet-btn">Connect Wallet</button>
+                <button id="logout-button" style="display: none;">Disconnect</button>
+            </div>
+            <p id="wallet-info"></p>
         </section>
     </main>
 </body>

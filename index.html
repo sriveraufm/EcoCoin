@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoToken Dashboard</title>
+    <title>EcoMkt</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider/dist/detect-provider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
     <script src="script.js" defer></script>
-
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1> EcoMkt </h1>
+            <h1> 🌻 EcoMkt </h1>
             <button id="logout-button" class="logout-button" style="display: none;">Log Out</button>
+            <button onclick="window.location.href='transaction-history.html'">View Transaction History</button>
+            <button onclick="window.location.href='user-profile.html'">View User Profile</button>
         </div>
     </header>
 
     <main class="bento-container">
+        <!-- Wallet Section -->
         <section class="section wallet-info">
             <h2>Wallet Information</h2>
             <p id="wallet-address">Not connected</p>
             <p id="wallet-balance"></p>
             <button id="connect-wallet-btn">Connect Wallet</button>
         </section>
-        
 
+        <!-- Faucet Section -->
         <section class="section faucet">
             <h2>Faucet</h2>
             <p>Claim your EcoTokens to get started!</p>
             <button>Claim 10 EcoTokens</button>
         </section>
+
 
         <section class="section marketplace">
             <h2>Marketplace</h2>

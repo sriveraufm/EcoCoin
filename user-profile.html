@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1> User Profile </h1>
+        </div>
+    </header>
+
+    <main class="bento-container">
+        <!-- Role Selection Section -->
+        <section class="section role-selection">
+            <h2>Select Your Role</h2>
+            <button id="buyer-btn" class="role-btn" onclick="selectRole('buyer')">Buyer</button>
+            <button id="seller-btn" class="role-btn" onclick="selectRole('seller')">Seller</button>
+        </section>
+
+        <!-- Profile Data Section -->
+        <section class="section profile-data" id="profile-data">
+            <h2>Your Profile</h2>
+            <p id="role-info">Role: Buyer</p>
+            <p id="total-sales">Total Sales: 0 EcoTokens</p>
+        </section>
+    </main>
+</body>
+</html>
