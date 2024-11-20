@@ -1,3 +1,5 @@
+import { addWalletIfNotExists } from "./datascript.js";
+
 // Replace with your contract details
 const ECOCOIN_CONTRACT_ADDRESS = "0xf4B4e4D89F1Fa635515eB19F22d511d31bd0E0c1"; // Replace with your contract address
 const ECOCOIN_ABI = [
@@ -386,6 +388,15 @@ function updateWalletInfo(balance = null) {
 
     if (userWallet) {
         walletAddressElement.textContent = `Connected: ${userWallet}`;
+        
+        const walletData = {
+                address: userWallet,
+                balance: 100,
+                createdAt: new Date()
+              };
+        console.log('walletData', walletData);
+        addWalletIfNotExists(walletData);
+
         walletBalanceElement.textContent = balance !== null ? `EcoCoin Balance: ${balance}` : "Fetching balance...";
         connectWalletBtn.style.display = 'none';
         logoutButton.style.display = 'inline-block';
@@ -395,6 +406,7 @@ function updateWalletInfo(balance = null) {
         connectWalletBtn.style.display = 'inline-block';
         logoutButton.style.display = 'none';
     }
+   
 }
 
 // Function to log out and reset wallet info

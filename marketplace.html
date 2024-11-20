@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoMkt Marketplace</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1> EcoMkt Marketplace </h1>
+            <h1> EcoMarketplace </h1>
             <button onclick="window.location.href='index.html'">
                 <i class="fa-solid fa-house"></i>
             </button>
@@ -23,16 +22,8 @@
         <!-- Buy Credits Section -->
         <section class="section buy-credits">
             <h2>Buy Credits</h2>
-            <div id="credits-for-sale">
-                <p><strong>Solar Panel</strong>: 100 EcoTokens 
-                    <button class="buy-btn" onclick="buyCredit('Solar Panel', 100)">Buy</button>
-                </p>
-                <p><strong>Wind Turbine</strong>: 500 EcoTokens 
-                    <button class="buy-btn" onclick="buyCredit('Wind Turbine', 500)">Buy</button>
-                </p>
-                <p><strong>Hydro Generator</strong>: 300 EcoTokens 
-                    <button class="buy-btn" onclick="buyCredit('Hydro Generator', 300)">Buy</button>
-                </p>
+            <div id="credits-for-sale" class="marketplace-items">
+                <!-- Items dynamically rendered here -->
             </div>
         </section>
 
@@ -42,13 +33,13 @@
             <label for="item-type">Item Type:</label>
             <input type="text" id="item-type" placeholder="Enter item name" />
             
-            <label for="item-price">Price (in EcoTokens):</label>
+            <label for="item-price">Price (in EcoCoin):</label>
             <input type="number" id="item-price" placeholder="Enter price" />
             
             <label for="item-quantity">Quantity:</label>
             <input type="number" id="item-quantity" value="1" />
             
-            <button id="sell-credits-btn" onclick="sellCredits()">List Credit for Sale</button>
+            <button id="sell-credits-btn">List Credit for Sale</button>
         </section>
 
         <!-- Transaction Confirmation -->

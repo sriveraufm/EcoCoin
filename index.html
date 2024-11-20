@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider/dist/detect-provider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
+    <script src="scriptM.js" defer></script>
+    <!-- <script src="datascript.js"></script> -->
+    <script type="module" src="datascript.js"></script>
+
 
     <!-- FontAwesome CDN for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -43,19 +47,36 @@
         <!-- Faucet Section -->
         <section class="section faucet">
             <h2>Faucet</h2>
-            <p>Claim your EcoTokens to get started!</p>
-            <button>Claim 10 EcoTokens</button>
+            <p>Claim your EcoCoin to get started!</p>
+            <button>Claim 10 EcoCoin</button>
         </section>
 
+        <!-- Marketplace Section -->
         <section class="section marketplace">
-            <h2>Marketplace</h2>
-            <div class="scrollable">
-                <p><strong>Solar Panel</strong>: 100 EcoTokens</p>
-                <p><strong>Wind Turbine</strong>: 500 EcoTokens</p>
-                <p><strong>Hydro Generator</strong>: 300 EcoTokens</p>
+            <h2>Marketplace - Items for Sale</h2>
+            <div id="marketplace-items" class="marketplace-grid">
+                <!-- Items will be dynamically rendered here -->
             </div>
-            <button>View More Items</button>
         </section>
+        
+        
+        <!-- Sell Credits Section -->
+        <section class="section sell-credits">
+            <div>
+            <h2>Sell Credits</h2>
+            <label for="item-type">Item Type:</label>
+            <input type="text" id="item-type" placeholder="Enter item name" />
+            
+            <label for="item-price">Price (in EcoCoin):</label>
+            <input type="number" id="item-price" placeholder="Enter price" />
+            
+            <label for="item-quantity">Quantity:</label>
+            <input type="number" id="item-quantity" value="1" />
+            
+            <button id="sell-credits-btn">List Credit for Sale</button>
+        </section>
+        
     </main>
+    
 </body>
 </html>
