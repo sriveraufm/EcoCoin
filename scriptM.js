@@ -28,7 +28,7 @@ async function renderItemsForSale2() {
         card.className = 'card';
         card.innerHTML = `
             <h4>${item.name}</h4>
-            <p>Price: ${item.price} EcoTokens</p>
+            <p>Price: ${item.price} EcoCoins</p>
             <p>Quantity: ${item.quantity}</p>
             <button onclick="buyItem(${index})" ${item.quantity === 0 ? 'disabled' : ''}>
                 ${item.quantity === 0 ? 'Out of Stock' : 'Buy'}
