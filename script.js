@@ -323,6 +323,8 @@ const ECOCOIN_ABI = [
 let userWallet = null;
 let ecoCoinContract = null;
 
+export { userWallet };
+
 // Function to connect Metamask and fetch balance
 async function connectMetamask() {
     console.log("Attempting to detect Metamask...");
@@ -396,6 +398,7 @@ function updateWalletInfo(balance = null) {
               };
         console.log('walletData', walletData);
         addWalletIfNotExists(walletData);
+
 
         walletBalanceElement.textContent = balance !== null ? `EcoCoin Balance: ${balance}` : "Fetching balance...";
         connectWalletBtn.style.display = 'none';

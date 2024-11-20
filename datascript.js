@@ -82,3 +82,40 @@ const db = getFirestore(app);
    }
  }
  
+  /**
+  * Function to add a wallet only if the address is not found
+  * @param {Object} walletData - Wallet data to add
+  * @returns {string} - Returns the document ID of the added or existing wallet
+  */
+  export async function addItemForSale(itemForSaleData) {
+    try {
+    
+      // add to firebase
+      const docRef = await addDoc(collection(db, "itemsForSale"), itemForSaleData);
+      console.log("New item for sale added to firebase with ID:", docRef.id);
+      return docRef.id;
+    } catch (e) {
+      console.error("Error adding itemForSale: ", e);
+      throw e;
+    }
+  }
+
+
+  export async function fetchItemsForSale() {
+    const itemsRef = collection(db, "itemsForSale");
+    const q = query(itemsRef); // No filtering needed in this case
+  
+    const querySnapshot = await getDocs(q);
+    const itemsForSale = [];
+  
+    querySnapshot.forEach(doc => {
+      const data = doc.data();
+      itemsForSale.push({
+        name: data.itemType,
+        price: data.itemPrice,
+        quantity: data.itemQuantity
+      });
+    });
+  
+    return itemsForSale;
+  }
