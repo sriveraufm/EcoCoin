@@ -3,6 +3,9 @@ import { addItemForSale, fetchItemsForSale } from "./datascript.js";
 
 console.log('userWallet en scriptM.js', userWallet);
 
+let itemsForSale = []; // Shared variable to store fetched items
+
+
 // Predefined items for sale
 // const itemsForSale = [
 //     { name: 'Solar Panel', price: 100, quantity: 5 },
@@ -14,7 +17,7 @@ console.log('userWallet en scriptM.js', userWallet);
 
 //ahora usando firebase
 async function renderItemsForSale2() {
-    const itemsForSale = await fetchItemsForSale();
+    itemsForSale = await fetchItemsForSale();
     const marketplaceContainer = document.getElementById('marketplace-items');
     marketplaceContainer.innerHTML = ''; // Clear current items
 
@@ -31,7 +34,7 @@ async function renderItemsForSale2() {
             <p>Price: ${item.price} EcoCoins</p>
             <p>Quantity: ${item.quantity}</p>
             <button onclick="buyItem(${index})" ${item.quantity === 0 ? 'disabled' : ''}>
-                ${item.quantity === 0 ? 'Out of Stock' : 'Buy'}
+                ${item.quantity === 0 ? 'Out of Stock' : 'Buy Now'}
             </button>
         `;
         marketplaceContainer.appendChild(card);
@@ -55,7 +58,7 @@ function renderItemsForSale() {
             <h4>${item.name}</h4>
             <p>Price: ${item.price} EcoTokens</p>
             <p>Quantity: ${item.quantity}</p>
-            <button onclick="buyItem(${index})" ${item.quantity === 0 ? 'disabled' : ''}>
+            <button onclick="buyItem(item)" ${item.quantity === 0 ? 'disabled' : ''}>
                 ${item.quantity === 0 ? 'Out of Stock' : 'Buy'}
             </button>
         `;
@@ -65,14 +68,26 @@ function renderItemsForSale() {
 
 // Function to handle buying an item
 function buyItem(index) {
-    if (itemsForSale[index].quantity > 0) {
-        itemsForSale[index].quantity--;
-        alert(`You bought 1 ${itemsForSale[index].name}`);
+
+    if (!userWallet) {
+        alert('Not Logged In. Please log in to purchase');
+        return
+    }
+
+    let data = itemsForSale[index];
+    console.log('data que viene del boton buy',data);
+    if (data.quantity > 0) {
+        data.quantity--;
+        alert(`You bought 1 ${data.name}`);
+        //**TODO  update item to buy and add item to wallet in Firebase
         renderItemsForSale();
     } else {
-        alert(`${itemsForSale[index].name} is out of stock!`);
+        alert(`${data.name} is out of stock!`);
     }
 }
+// Attach buyItem globally
+window.buyItem = buyItem;
+
 
 // Event listener for selling credits
 document.getElementById('sell-credits-btn').addEventListener('click', () => {

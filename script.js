@@ -258,7 +258,7 @@ const ECOCOIN_ABI = [
             "outputs": [
                 {
                     "internalType": "uint256",
-                    "name": "",
+                    "name": "balance",
                     "type": "uint256"
                 }
             ],
@@ -339,10 +339,15 @@ async function connectMetamask() {
             // Request wallet connection
             const accounts = await provider.request({ method: 'eth_requestAccounts' });
             userWallet = accounts[0];
-            console.log("Connected wallet:", userWallet);
+            console.log('account', accounts);
+            console.log("Connected wallet: 24", userWallet);
 
             // Initialize contract instance
+           
             ecoCoinContract = new web3.eth.Contract(ECOCOIN_ABI, ECOCOIN_CONTRACT_ADDRESS);
+
+            console.log("EcoCoin Contract Instance:", ecoCoinContract);
+            console.log("Methods in Contract:", ecoCoinContract.methods);
 
             // Fetch EcoCoin balance
             const balance = await getEcoCoinBalance(userWallet);
@@ -374,6 +379,7 @@ async function getEcoCoinBalance(address) {
         // Fetch balance from the contract
         const balance = await ecoCoinContract.methods.balanceOf(address).call();
         const decimals = await ecoCoinContract.methods.decimals().call();
+        console.log('decimalsssssss-----',decimals);
         return balance / (10 ** decimals); // Adjust for token decimals
     } catch (err) {
         console.error("Error fetching EcoCoin balance:", err.message || err);
@@ -425,13 +431,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('logout-button').addEventListener('click', logoutMetamask);
 });
 
-// Function to handle buying items (you'll add actual smart contract logic here)
-function buyItem(item, price) {
-    alert(`Buying ${item} for ${price} EcoTokens`);
-    // Implement buy logic here using Web3.js or other methods
-    // After purchase, update the marketplace
-    updateMarketplace();
-}
+// // Function to handle buying items (you'll add actual smart contract logic here)
+// function buyItem(item, price) {
+//     alert(`Buying ${item} for ${price} EcoTokens`);
+//     // Implement buy logic here using Web3.js or other methods
+//     // After purchase, update the marketplace
+//     updateMarketplace();
+// }
 
 // Function to view more items
 function viewMoreItems() {
