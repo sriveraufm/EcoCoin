@@ -307,3 +307,19 @@ button:hover {
     background-color: #45a049;
 }
 
+.faucet-button {
+    padding: 0.5rem 1rem;
+    background-color: #4caf50; /* Soft yellow */
+    color: #ffffff; /* Dark green text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure proper padding and spacing */
+    text-align: center; /* Center text */
+}
+
+.faucet-button:hover {
+    background-color: #4caf50; /* Slightly darker yellow */
+}
