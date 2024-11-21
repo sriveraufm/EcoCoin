@@ -7,7 +7,7 @@ EcoMkt es una plataforma basada en blockchain que permite comprar, vender e inte
  - 🌍 Faucet para reclamar EcoCoins gratis.
  - 🏠 Interfaz intuitiva con conexión a Metamask.
 
-Tecnologías
+### Tecnologías
 Frontend: HTML, CSS, JavaScript
 Backend: Firebase (Firestore y Hosting)
 Blockchain: Ethereum, Web3.js
